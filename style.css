@@ -42,7 +42,7 @@ body {
     position: relative;
     z-index: 2;
     display: flex;
-    top: -50px;
+    top: -60px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -136,7 +136,7 @@ body {
 
 .scroll-hint {
     position: absolute;
-    bottom: 70px;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%); /* Точное центрирование */
     
