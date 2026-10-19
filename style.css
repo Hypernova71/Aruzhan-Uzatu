@@ -1,0 +1,850 @@
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #FFFFFF; /* Белоснежный или едва кремовый фон */
+    color: #5C0E14; /* Бордовый оттенок текста */
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+/* --- ПЕРВАЯ СЕКЦИЯ (HERO) С ЦВЕТАМИ СПРАВА --- */
+#hero {
+    min-height: 100vh;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Фоновая картинка с розами */
+.hero-rose-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 140px; /* Можешь менять число под свой размер */
+    object-fit: fill; /* Растягивает картинку точно по заданной ширине без обрезания */
+    object-position: right center; /* Прижимает к правому краю */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Контейнер с текстом */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+    margin-right: 10%; /* Чуть сдвигаем влево, чтобы текст не наезжал на розы */
+    gap: 12px;
+}
+
+/* --- ТИПОГРАФИКА ДЛЯ ҰЗАТУ --- */
+
+/* Имя Aruzhan (Каллиграфия) */
+.uzatu-title {
+    font-family: 'Great Vibes', cursive; /* Можно использовать 'Alex Brush' или 'Marck Script' */
+    font-size: 4.5rem;
+    color: #6B0F17; /* Глубокий винный цвет */
+    line-height: 1;
+    margin-bottom: -5px;
+}
+
+/* Надпись QYZ UZATU */
+.uzatu-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    color: #6B0F17;
+    text-transform: uppercase;
+}
+
+/* Дата 06.12.2026 */
+.uzatu-date {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    color: #6B0F17;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.uzatu-time {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+/* --- КНОПКА МУЗЫКИ (В СТИЛЕ МАКЕТА) --- */
+.music-player-btn {
+    background: #6B0F17; /* Бордовый цвет */
+    color: #FFFFFF;
+    border: none;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%; /* Круглая кнопка */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(107, 15, 23, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    position: relative;
+    z-index: 9999;
+}
+
+.music-player-btn:active {
+    transform: scale(0.92);
+}
+
+/* Фиксированная кнопка при скролле */
+.music-player-btn.fixed-top-right {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 50px !important;
+    padding: 8px 18px !important;
+    flex-direction: row !important;
+    z-index: 9999 !important;
+    opacity: 0.85;
+    transition: all 0.4s ease !important;
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%); /* Точное центрирование */
+    
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: #6B0F17;
+    opacity: 0.8;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    z-index: 10;
+    pointer-events: none;
+
+    /* Включаем анимацию */
+    animation: scrollBounce 2s infinite ease-in-out;
+}
+
+.scroll-hint::after {
+    content: '↑';
+    font-size: 1.1rem;
+}
+
+/* Ключевые кадры для плавной подсказки скролла */
+@keyframes scrollBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate(-50%, 0);
+    }
+    40% {
+        transform: translate(-50%, -8px);
+    }
+    60% {
+        transform: translate(-50%, -4px);
+    }
+}
+
+/* Контейнер-обертка: четкие размеры и абсолютное центрирование внутри */
+.music-player-wrapper {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    z-index: 9999;
+}
+
+/* SVG с текстом: занимает весь контейнер и кружится вокруг ровного центра */
+.circular-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: spinText 12s linear infinite;
+    pointer-events: none;
+    transform-origin: center center;
+}
+
+.circular-text text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7.5px;
+    fill: #6B0F17;
+    letter-spacing: 1.2px;
+    font-weight: 500;
+}
+
+/* Кнопка точно по центру */
+.music-player-btn {
+    background: #6B0F17;
+    color: #FFFFFF;
+    border: none;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(107, 15, 23, 0.3);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+#musicIcon {
+    font-size: 0.75rem;
+    line-height: 1;
+    margin-left: 2px; /* Легкая оптическая компенсация треугольника */
+}
+
+#musicText {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    margin-top: 3px;
+}
+
+/* Анимация вращения по часовой стрелке */
+@keyframes spinText {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Мобильная адаптация */
+@media (max-width: 480px) {
+    .hero-content {
+        margin-right: 20%; /* На смартфонах чуть больше освобождаем место под цветы */
+    }
+    .uzatu-title {
+        font-size: 3.8rem;
+    }
+    .uzatu-subtitle {
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+    }
+    .hero-rose-bg {
+        max-width: 55%;
+    }
+}
+
+
+
+
+
+/* --- ЛЕТАЮЩИЕ ЛЕПЕСТКИ (СПРАВА НАЛЕВО) --- */
+.petals-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.petal {
+    position: absolute;
+    width: 32px;  /* Сделали крупнее */
+    height: 40px; /* Сделали крупнее */
+    background-image: url('petal.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0; 
+}
+
+.petals-container.active .petal {
+    animation-fill-mode: forwards;
+}
+
+/* Новые траектории: летят справа налево и кружатся */
+@keyframes flyLeft1 {
+    0% { opacity: 0; transform: translate(85vw, 10vh) rotate(0deg) scale(0.9); }
+    20% { opacity: 1; }
+    80% { opacity: 0.9; }
+    100% { opacity: 0; transform: translate(-20vw, 35vh) rotate(-360deg) scale(1.2); }
+}
+
+@keyframes flyLeft2 {
+    0% { opacity: 0; transform: translate(90vw, 25vh) rotate(45deg) scale(0.7); }
+    25% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-20vw, 15vh) rotate(300deg) scale(1.1); }
+}
+
+@keyframes flyLeft3 {
+    0% { opacity: 0; transform: translate(80vw, 50vh) rotate(15deg) scale(1.2); }
+    15% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-20vw, 70vh) rotate(-420deg) scale(0.8); }
+}
+
+@keyframes flyLeft4 {
+    0% { opacity: 0; transform: translate(85vw, 65vh) rotate(-30deg) scale(1); }
+    30% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-20vw, 45vh) rotate(350deg) scale(1.3); }
+}
+
+@keyframes flyLeft5 {
+    0% { opacity: 0; transform: translate(95vw, 80vh) rotate(90deg) scale(0.8); }
+    20% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-20vw, 90vh) rotate(-300deg) scale(1.1); }
+}
+
+@keyframes flyLeft6 {
+    0% { opacity: 0; transform: translate(88vw, 35vh) rotate(60deg) scale(1.1); }
+    25% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-20vw, 55vh) rotate(480deg) scale(0.9); }
+}
+
+/* Присваиваем новые анимации */
+.petals-container.active .petal-1 { animation: flyLeft1 5.5s ease-out 0.1s infinite; }
+.petals-container.active .petal-2 { animation: flyLeft2 6.8s ease-out 0.5s infinite; }
+.petals-container.active .petal-3 { animation: flyLeft3 6.0s ease-out 1.1s infinite; }
+.petals-container.active .petal-4 { animation: flyLeft4 7.2s ease-out 0.3s infinite; }
+.petals-container.active .petal-5 { animation: flyLeft5 6.5s ease-out 1.6s infinite; }
+.petals-container.active .petal-6 { animation: flyLeft6 5.8s ease-out 0.8s infinite; }
+
+
+
+
+.custom-a{
+    font-family: Marck Script, cursive;
+}
+
+
+
+
+/* Заголовки рукописным шрифтом */
+.script-title {
+    font-family: 'Great Vibes', 'Cormorant Garamond', cursive, serif;
+    font-size: 3rem;
+    color: #7A6248;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.event-details {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: #4A4238;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Контейнер Календаря */
+.calendar-container {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #7A6248;
+    margin-bottom: 12px;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    row-gap: 12px;
+    text-align: center;
+}
+
+.day {
+    font-size: 0.95rem;
+    color: #4A4238;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 36px;
+}
+
+/* Выделенный день с сердечком */
+.day.active-day {
+    font-weight: bold;
+    color: #7A6248;
+}
+
+.heart-badge {
+    position: absolute;
+    font-size: 1.8rem;
+    opacity: 0.35;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Стильный таймер обратного отсчета */
+.timer-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.timer-box {
+    background: rgba(122, 98, 72, 0.08);
+    border: 1px solid rgba(122, 98, 72, 0.2);
+    border-radius: 8px;
+    padding: 10px 12px;
+    min-width: 65px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.timer-box span {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #7A6248;
+    line-height: 1.1;
+}
+
+.timer-box label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    color: #8C7B6B;
+    text-transform: lowercase;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Стиль для казахского традиционного текста приглашения */
+.invitation-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 1.5px;
+    color: #7A6248;
+    text-align: center;
+    max-width: 500px;
+    padding-top: 50px;
+}
+
+.uppercase-accent {
+    text-transform: uppercase;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #E0D7CD;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #4A4238;
+}
+
+.form-input::placeholder {
+    color: #B59B7C;
+    opacity: 0.7;
+}
+
+/* Радиокнопки */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 15px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.radio-input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #B59B7C;
+    border-radius: 50%;
+    outline: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.radio-input:checked {
+    border-color: #7A6248;
+    background-color: #7A6248;
+}
+
+.radio-input:checked::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #FFF;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-submit {
+    width: 100%;
+    margin-top: 25px;
+    font-size: 1rem;
+    padding: 18px;
+}
+
+/* --- 6. Адаптация для мобильных --- */
+@media (max-width: 450px) {
+    .names {
+        font-size: 3.5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+}
+
+/* Стиль кнопки карты под общий дизайн */
+.btn-map {
+    background-color: #7A6248;
+    color: #FFF;
+    box-shadow: 0 4px 15px rgba(122, 98, 72, 0.25);
+    margin-top: 15px;
+}
+
+.btn-map:hover {
+    background-color: #634E38;
+}
+
+/* Статичный контейнер для 3 картинок */
+.static-carousel-wrapper {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 15px auto;
+    padding: 0 10px;
+}
+
+/* Боковые маленькие карточки */
+.side-card {
+    width: 75px;
+    height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+    opacity: 0.55;
+    /* Полупрозрачные */
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: #E0D7CD;
+}
+
+/* Центральная большая карточка */
+.main-card {
+    width: 180px;
+    height: 180px;
+    border-radius: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    z-index: 2;
+    background: #E0D7CD;
+}
+
+/* Настройки самих картинок */
+.side-card img,
+.main-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.hosts-names {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: #7A6248;
+    text-align: center;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+/* Заголовок Анкета в стиле курсива с засечками */
+.serif-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #7A6248;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.rsvp-description {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: #4A4238;
+    text-align: center;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+.rsvp-container {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+/* Поле ввода имени */
+.form-input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #D6C9BC;
+    border-radius: 12px;
+    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #4A4238;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: #A39382;
+}
+
+.form-input:focus {
+    border-color: #7A6248;
+}
+
+/* Заголовок вопроса */
+.rsvp-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: #7A6248;
+    display: block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Выбор радио-кнопок */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #4A4238;
+    cursor: pointer;
+}
+
+.radio-input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #B59B7C;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.radio-input:checked {
+    border-color: #7A6248;
+}
+
+.radio-input:checked::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #7A6248;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Кнопка отправки */
+.btn-submit {
+    width: 100%;
+    margin-top: 25px;
+    padding: 16px;
+    background-color: #7A6248;
+    color: #FFF;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(122, 98, 72, 0.25);
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #634E38;
+}
+
+/* Футер сайта */
+.site-footer {
+    width: 100%;
+    padding: 35px 20px 45px;
+    text-align: center;
+    border-top: 1px solid rgba(122, 98, 72, 0.15);
+    /* Тонкая нежная линия сверху */
+    margin-top: 50px;
+    background-color: rgba(122, 98, 72, 0.03);
+    /* Едва заметный подтон для завершенности */
+}
+
+.site-footer p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-love {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #7A6248;
+    /* Наш основной тёплый шоколадный цвет */
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.footer-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.6rem;
+    font-weight: normal;
+    color: #7A6248;
+    margin: 0 4px;
+    vertical-align: middle;
+}
+
+.footer-copy {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #A39382;
+    /* Мягкий второстепенный бежевый цвет */
+    text-transform: uppercase;
+}
+
+.left_flower {
+    position: absolute;
+    /* Жестко привязываем к родительскому блоку */
+    top: -80px;
+    /* Отступ сверху (можешь подстроить под себя) */
+    right: 0;
+    height: auto;
+    /* Сохраняем пропорции картинки, чтобы её не сплющило */
+    z-index: 5;
+    /* Чтобы цветы были поверх фона, но не перекрывали текст кнопок */
+    pointer-events: none;
+    /* Чтобы картинка не мешала нажимать на кнопки или выделять текст */
+}
+
+.mid_offlowers {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    height: auto;
+    z-index: 5;
+    pointer-events: none;
+    transform: translateX(-50%);
+}
+
+.right_flower {
+    position: absolute;
+    /* Жестко привязываем к родительскому блоку */
+    top: -80px;
+    /* Отступ сверху (можешь подстроить под себя) */
+    left: 0;
+    height: auto;
+    /* Сохраняем пропорции картинки, чтобы её не сплющило */
+    z-index: 5;
+    /* Чтобы цветы были поверх фона, но не перекрывали текст кнопок */
+    pointer-events: none;
+    /* Чтобы картинка не мешала нажимать на кнопки или выделять текст */
+}
+
+.pgwing {
+    position: absolute;
+    top: 320px;
+    right: 0px;
+    height: auto;
+    z-index: 5;
+    pointer-events: none;
+}

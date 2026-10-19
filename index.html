@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Үйлену тойына шақыру — Эльдар & Аружан</title>
+    <!-- Open Graph теги для WhatsApp, Telegram и соцсетей -->
+    <meta property="og:title" content="Үйлену тойына шақыру — Эльдар & Аружан">
+    <meta property="og:description" content="Сізді көруге қуаныштымыз! 09.12.2026">
+    <meta property="og:image" content="https://eldar-aruzhan.vercel.app/Rest1.png">
+    <meta property="og:url" content="https://eldar-aruzhan.vercel.app">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Great+Vibes&family=Marck+Script&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- СЕКЦИЯ 1: ГЛАВНАЯ (ҚЫЗ ҰЗАТУ) -->
+    <section id="hero">
+        <!-- Фоновое изображение цветов справа -->
+        <img src="hero_rose.png" alt="Flowers" class="hero-rose-bg">
+        <!-- Контейнер для 6 летающих лепестков -->
+        <div class="petals-container active" id="petalsContainer">
+            <div class="petal petal-1"></div>
+            <div class="petal petal-2"></div>
+            <div class="petal petal-3"></div>
+            <div class="petal petal-4"></div>
+            <div class="petal petal-5"></div>
+            <div class="petal petal-6"></div>
+        </div>
+
+        <div class="hero-content">
+            <!-- Имя невесты -->
+            <div class="uzatu-title">
+                Aruzhan
+            </div>
+
+            <!-- Надпись ҚЫЗ ҰЗАТУ -->
+            <div class="uzatu-subtitle">
+                QYZ UZATU
+            </div>
+
+            <!-- Дата и время -->
+            <div class="uzatu-date">
+                05.12.2026<br>
+                <span class="uzatu-time">17:00</span>
+            </div>
+
+            <!-- Круглая / Бордовая кнопка музыки -->
+            <div class="music-player-wrapper">
+                <!-- Сам аудиоэлемент, который ищет файл music.mp3 -->
+                <audio id="myAudio" loop>
+                    <source src="music.mp3" type="audio/mpeg">
+                </audio>
+
+                <!-- Вращающийся текст по кругу -->
+                <svg class="circular-text" viewBox="0 0 120 120">
+                    <path id="circlePath" d="M 60, 60 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" fill="none" />
+                    <text>
+                        <textPath href="#circlePath" startOffset="0%">
+                            әуен • әуен • әуен • әуен • әуен • әуен • әуен • әуен • әуен •
+                        </textPath>
+                    </text>
+                </svg>
+
+                <!-- Сама круглая кнопка внутри -->
+                <button id="musicBtn" class="music-player-btn">
+                    <span id="musicIcon">▶</span>
+                    <span id="musicText">PLAY</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Подсказка скролла -->
+        <div class="scroll-hint">Жоғары көтеріңіз</div>
+    </section>
+
+
+    <!-- СЕКЦИЯ 2: ТЕКСТ ПРИГЛАШЕНИЯ -->
+    <section id="description">
+
+        <h1 class="script-title"><span class="custom-a">Қ</span>ҰРМЕТТІ ҚОНАҚТАР!</h1>
+
+        <p class="invitation-text_p"> CІЗДЕРДІ АЯУЛЫ ҚЫЗЫМЫЗ</p>
+
+        <h1 class="invitation-text_name"><span class="custom-a">А</span>ружан</h1>
+
+        <!-- Обращение к гостям -->
+        <div class="invitation-text uppercase-accent">
+            АТА АНАСЫНЫҢ АЯЛЫ<br>
+            АЛАҚАНЫНАН - ҚҰТТЫ БОСАҒАСЫНА<br>
+            ШЫҒАРЫП САЛУ РӘСІМІНЕ<br>
+            АРНАЛҒАН САЛТАНАТТЫ <br>
+            ДАСТАХАНЫМЫЗДЫҢ ҚАДІРЛІ<br>
+            ҚОНАҒЫ БОЛУҒА СІЗДЕРДІ ШАҚЫРАМЫЗ!<br>
+        </div>
+
+
+    </section>
+
+    <!-- СЕКЦИЯ: ТОЙ САЛТАНАТЫ И КАЛЕНДАРЬ -->
+    <section id="event-date">
+
+        <div class="pgwing"><img style="width: 200px; height: auto;" src="pgwing.png" alt=""></div>
+
+        <!-- Заголовок курсивом -->
+        <div class="script-title">Той салтанаты:</div>
+
+        <div class="event-details">
+            9 ЖЕЛТОҚСАН 2026 ЖЫЛ<br>
+            САҒАТ 18:00
+        </div>
+
+        <!-- Сетка Календаря на Декабрь 2026 -->
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <span>ДС</span>
+                <span>СС</span>
+                <span>СР</span>
+                <span>БС</span>
+                <span>ЖМ</span>
+                <span>СБ</span>
+                <span>ЖБ</span>
+            </div>
+            <div class="calendar-days">
+                <!-- Пустая ячейка для Понедельника (1 декабря — Вторник) -->
+                <div class="day empty"></div>
+
+                <div class="day">1</div>
+                <div class="day">2</div>
+                <div class="day">3</div>
+                <div class="day">4</div>
+                <div class="day">5</div>
+                <div class="day">6</div>
+                <div class="day">7</div>
+                <div class="day">8</div>
+
+                <!-- 9 Декабря с акцентным сердечком -->
+                <div class="day active-day">
+                    <span>9</span>
+                    <div class="heart-badge">❤️</div>
+                </div>
+
+                <div class="day">10</div>
+                <div class="day">11</div>
+                <div class="day">12</div>
+                <div class="day">13</div>
+                <div class="day">14</div>
+                <div class="day">15</div>
+                <div class="day">16</div>
+                <div class="day">17</div>
+                <div class="day">18</div>
+                <div class="day">19</div>
+                <div class="day">20</div>
+                <div class="day">21</div>
+                <div class="day">22</div>
+                <div class="day">23</div>
+                <div class="day">24</div>
+                <div class="day">25</div>
+                <div class="day">26</div>
+                <div class="day">27</div>
+                <div class="day">28</div>
+                <div class="day">29</div>
+                <div class="day">30</div>
+                <div class="day">31</div>
+            </div>
+        </div>
+
+        <!-- СЕКЦИЯ: ТОЙҒА ДЕЙІН (ТАЙМЕР) -->
+        <div class="script-title" style="margin-top: 60px;">Той<span class="my-custom-text">ғ</span>а дейін:</div>
+
+        <div class="timer-container">
+            <div class="timer-box">
+                <span id="days">00</span>
+                <label>күн</label>
+            </div>
+            <div class="timer-box">
+                <span id="hours">00</span>
+                <label>сағат</label>
+            </div>
+            <div class="timer-box">
+                <span id="minutes">00</span>
+                <label>минут</label>
+            </div>
+            <div class="timer-box">
+                <span id="seconds">00</span>
+                <label>секунд</label>
+            </div>
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ 4: МЕКЕН-ЖАЙЫМЫЗ (3 СТАТИЧНЫЕ КАРТОЧКИ) -->
+    <section id="location">
+        <div class="script-title">Мекен-жайымыз:</div>
+
+        <!-- Контейнер для 3 картинок в один ряд -->
+        <div class="static-carousel-wrapper">
+            <div class="side-card left-card">
+                <img id="imgLeft" src="Rest1.png" alt="Rest Left">
+            </div>
+
+            <div class="main-card">
+                <img id="imgCenter" src="Rest2.png" alt="Rest Center">
+            </div>
+
+            <div class="side-card right-card">
+                <img id="imgRight" src="Rest3.png" alt="Rest Right">
+            </div>
+        </div>
+
+        <div class="event-details" style="margin-top: 20px;">
+            АСТАНА ҚАЛАСЫ,<br>
+            УЛ. ЧИНГИЗ АЙТМАТОВ, 58<br>
+            "ROYAL PALACE" МЕЙРАМХАНАСЫ
+        </div>
+
+        <!-- КНОПКА КАРТЫ -->
+        <a href="https://2gis.kz/astana/geo/70000001081186323/71.373352,51.157816" target="_blank" class="btn btn-map">
+            📍 Картаны ашу
+        </a>
+    </section>
+
+    <!-- СЕКЦИЯ 5: ТОЙ ИЕЛЕРІ -->
+    <section id="hosts">
+        <!-- Заголовок рукописным шрифтом -->
+        <div class="script-title">Той иелері:</div>
+
+        <!-- Имена родителей: аккуратно, заглавными буквами -->
+        <div class="hosts-names">
+            ДӘУРЕН & АЙНҰР
+        </div>
+    </section>
+
+    <!-- СЕКЦИЯ 6: АНКЕТА -->
+    <section id="rsvp">
+        <!-- Заголовок анкеты -->
+        <div class="serif-title">Анкета</div>
+
+        <!-- Описание -->
+        <p class="rsvp-description">
+            Тойға қатысуыңызды растауыңызды сұраймыз.
+        </p>
+
+        <!-- Форма -->
+        <div class="rsvp-container">
+            <form id="weddingForm">
+                <div class="form-group">
+                    <input type="text" class="form-input" id="nameInput" placeholder="Есіміңіз" required>
+                </div>
+
+                <div class="form-group" style="text-align: left; margin-top: 25px;">
+                    <label class="rsvp-label">СІЗ КЕЛЕСІЗ БЕ?</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="Келемін" class="radio-input" checked>
+                            Келемін / Приду
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="Жұбайыммен келемін" class="radio-input">
+                            Жұбайыммен келемін / Приду с парой
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="attendance" value="Келе алмаймын" class="radio-input">
+                            Келе алмаймын / Не приду
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-submit">Жіберу</button>
+            </form>
+        </div>
+
+
+    </section>
+
+    <!-- ФУТЕР (ПОДВАЛ САЙТА НА ВСЮ ШИРИНУ) -->
+    <footer class="site-footer">
+        <p class="footer-love">
+            Сделано с любовью <span class="footer-names">Эльдар &<span class="custom-a">А</span>ружан </span>
+        </p>
+        <p class="footer-copy">
+            Все права защищены © 2026
+        </p>
+    </footer>
+    <!-- Скрытая панель админа -->
+    <div id="adminPanel"
+        style="display: none; padding: 30px 20px; background: #fdfbf7; border-top: 2px dashed #7A6248; margin-top: 40px; text-align: center;">
+        <h3 style="font-family: 'Marck Script', cursive; font-size: 2.5rem; color: #7A6248; margin-bottom: 15px;">Список
+            ответивших гостей</h3>
+        <p id="adminStats" style="font-weight: bold; color: #555; margin-bottom: 20px;">Загрузка данных...</p>
+
+        <div
+            style="max-height: 400px; overflow-y: auto; border: 1px solid #ddd; border-radius: 12px; background: #fff; text-align: left; padding: 10px;">
+            <table id="adminTable" style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                <thead>
+                    <tr style="background: #f4eee8; border-bottom: 1px solid #ccc;">
+                        <th style="padding: 10px;">Имя</th>
+                        <th style="padding: 10px;">Будет?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Сюда подгрузятся гости -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Свой красивый модальный блок вместо стандартного alert -->
+    <div id="customModal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 10000; align-items: center; justify-content: center;">
+        <div
+            style="background: #FFF; padding: 30px 20px; border-radius: 20px; width: 90%; max-width: 320px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+            <p
+                style="font-family: 'Montserrat', sans-serif; font-size: 1.05rem; color: #7A6248; margin-bottom: 20px; line-height: 1.4;">
+                Рахмет! Сіздің жауабыңыз қабылданды.</p>
+            <button id="closeModalBtn"
+                style="background: #7A6248; color: #FFF; border: none; padding: 12px 30px; border-radius: 25px; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; cursor: pointer; box-shadow: 0 4px 12px rgba(122, 98, 72, 0.25);">OK</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
