@@ -28,8 +28,8 @@ musicBtn.addEventListener('click', function () {
 
 
 
-    // 2. ТАЙМЕР ОБРАТНОГО ОТСЧЕТА ДО 9 ДЕКАБРЯ 2026, 18:00
-    const weddingDate = new Date('December 9, 2026 18:00:00').getTime();
+    // 2. ТАЙМЕР ОБРАТНОГО ОТСЧЕТА ДО 6 ДЕКАБРЯ 2026, 18:00
+    const weddingDate = new Date('December 6, 2026 18:00:00').getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();

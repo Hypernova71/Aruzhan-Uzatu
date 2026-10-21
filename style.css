@@ -394,44 +394,120 @@ body {
     text-align: center;
 }
 
+#event-date{
+    margin-top: 40px;
+    max-width: 400px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.invitation-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.8;
+    letter-spacing: 1.5px;
+    color: #6B0F17; /* Глубокий винный цвет */
+    text-align: center;
+    max-width: 500px;
+    padding-top: 30px;
+     max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
 
 .event-details {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.1rem;
     letter-spacing: 2px;
-    color: #4A4238;
+    color: #6B0F17; /* Глубокий винный цвет */
     text-align: center;
     line-height: 1.6;
     margin-bottom: 25px;
 }
-
 /* Контейнер Календаря */
 .calendar-container {
+    position: relative;
     width: 100%;
-    max-width: 320px;
+    
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
+    
+    /* Устанавливаем картинку как фон */
+    background-image: url('calendar_frame.jpg');
+    background-size: 100% 100%; /* Растягивает картинку точно от края до края по ширине и высоте */
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* Отступы внутри рамки, чтобы календарь встал в центр («окошко») */
+    padding: 280px 1px 110px 1px; 
+
+    
 }
+
+.calendar-frame-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.calendar-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 160px; /* Высота зоны перехода */
+    background: linear-gradient(
+        to bottom, 
+        rgba(235, 230, 222, 1) 0%,     /* Цвет подбираешь под середину картинки */
+        rgba(235, 230, 222, 0.5) 60%, 
+        rgba(235, 230, 222, 0) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Чтобы числа календаря были поверх градиента */
+.calendar-header, 
+.calendar-days {
+    position: relative;
+    z-index: 2;
+}
+
+/* Контейнер для надписи «Той салтанаты» и даты */
+.wedding-info-block {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px;
+    
+    /* Тот самый фон-купол (градиент), который совпадает по цвету 
+       с серединой/верхом твоей картинки */
+    background: linear-gradient(
+        to bottom, 
+        rgba(235, 230, 222, 1) 0%,     /* Цвет верха купола */
+        rgba(235, 230, 222, 0.9) 100%  /* Плавный переход к низу блока */
+    );
+    
+    /* Если хочешь скруглить только верхние углы купола */
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .calendar-header {
     display: grid;
@@ -513,17 +589,6 @@ body {
 }
 
 /* Стиль для казахского традиционного текста приглашения */
-.invitation-text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.8;
-    letter-spacing: 1.5px;
-    color: #7A6248;
-    text-align: center;
-    max-width: 500px;
-    padding-top: 50px;
-}
 
 .uppercase-accent {
     text-transform: uppercase;
