@@ -1,3 +1,10 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 body {
     width: 100%;
     overflow-x: hidden;
@@ -70,7 +77,7 @@ body {
     font-weight: 300;
     font-size: 1.8rem;
     letter-spacing: 4px;
-    color: #6B0F17;
+    color: #5C0E14;
     text-transform: uppercase;
 }
 
@@ -343,24 +350,70 @@ body {
 .petals-container.active .petal-5 { animation: flyLeft5 6.5s ease-out 1.6s infinite; }
 .petals-container.active .petal-6 { animation: flyLeft6 5.8s ease-out 0.8s infinite; }
 
-
-
-
 .custom-a{
     font-family: Marck Script, cursive;
 }
 
+.line{
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    height: auto;
+}
 
+/* Заголовки */
 
-
-/* Заголовки рукописным шрифтом */
 .script-title {
-    font-family: 'Great Vibes', 'Cormorant Garamond', cursive, serif;
-    font-size: 3rem;
-    color: #7A6248;
+    font-size: 2.0rem;
+    color: #9c2f34;
     text-align: center;
     margin-bottom: 15px;
+    margin-top: 50px;
 }
+
+.invitation-text_p {
+    color: #9c2f34;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.description{
+    text-align: center;
+    
+}
+
+.invitation-text_name{
+    font-family: 'Great Vibes', cursive; /* Можно использовать 'Alex Brush' или 'Marck Script' */
+    font-size: 4.5rem;
+    color: #6B0F17; /* Глубокий винный цвет */
+    line-height: 1;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .event-details {
     font-family: 'Montserrat', sans-serif;
