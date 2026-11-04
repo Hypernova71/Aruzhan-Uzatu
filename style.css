@@ -366,7 +366,7 @@ body {
 
 .script-title {
     font-size: 2.0rem;
-    color: #9c2f34;
+    color: #6B0F17;
     text-align: center;
     margin-bottom: 15px;
     margin-top: 20px;
@@ -397,6 +397,7 @@ body {
 #event-date{
     margin-top: 40px;
     max-width: 400px;
+    margin:auto;
 }
 
 .invitation-text {
@@ -432,7 +433,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     
     /* Устанавливаем картинку как фон */
-    background-image: url('calendar_frame.jpg');
+    background-image: url('calendar_pic.jpg');
     background-size: 100% 100%; /* Растягивает картинку точно от края до края по ширине и высоте */
     background-repeat: no-repeat;
     background-position: center;
@@ -459,7 +460,7 @@ body {
     background: linear-gradient(
         to bottom, 
         rgba(235, 230, 222, 1) 0%,     /* Цвет подбираешь под середину картинки */
-        rgba(235, 230, 222, 0.5) 60%, 
+        rgba(233, 231, 229, 0.5) 50%, 
         rgba(235, 230, 222, 0) 100%
     );
     pointer-events: none;
@@ -488,26 +489,40 @@ body {
         to bottom, 
         rgba(235, 230, 222, 1) 0%,     /* Цвет верха купола */
         rgba(235, 230, 222, 0.9) 100%  /* Плавный переход к низу блока */
-    );
+        );
     
     /* Если хочешь скруглить только верхние углы купола */
     border-top-left-radius: 200px;
     border-top-right-radius: 200px;
 }
 
+.timer-box {
+   background: rgba(107, 15, 23, 0.06); 
+    border: 1px solid rgba(107, 15, 23, 0.2);
+    border-radius: 8px;
+    padding: 10px 12px;
+    min-width: 65px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
 
+.timer-box span {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #6B0F17;
+    line-height: 1.1;
+}
 
-
-
-
-
-
-
-
-
-
-
-
+.timer-box label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    color: #6B0F17;
+    text-transform: lowercase;
+    margin-top: 4px;
+    display: block;
+}
 
 .calendar-header {
     display: grid;
@@ -539,7 +554,7 @@ body {
 /* Выделенный день с сердечком */
 .day.active-day {
     font-weight: bold;
-    color: #7A6248;
+    color: #6B0F17;
 }
 
 .heart-badge {
@@ -560,32 +575,32 @@ body {
     margin-top: 20px;
 }
 
-.timer-box {
-    background: rgba(122, 98, 72, 0.08);
-    border: 1px solid rgba(122, 98, 72, 0.2);
-    border-radius: 8px;
-    padding: 10px 12px;
-    min-width: 65px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+.map-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
 }
 
-.timer-box span {
-    display: block;
+/* Стиль кнопки карты под общий дизайн */
+.btn-map {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6B0F17; /* Наш глубокий винный цвет */
+    color: #FFFDF9;            /* Светлый молочный текст */
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #7A6248;
-    line-height: 1.1;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 30px;      /* Красивые скругленные края (можно убрать в 8px, если хочешь квадратную) */
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(107, 15, 23, 0.25); /* Мягкая винная тень */
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.timer-box label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
-    color: #8C7B6B;
-    text-transform: lowercase;
-    margin-top: 4px;
-    display: block;
+.btn-map:hover {
+    background-color: #520B11; /* Чуть темнее при наведении */
+    transform: translateY(-2px); /* Легкий эффект поднятия */
 }
 
 /* Стиль для казахского традиционного текста приглашения */
@@ -601,15 +616,23 @@ body {
 .form-input {
     width: 100%;
     padding: 15px;
-    border: 1px solid #E0D7CD;
+    /* Сделаем рамку чуть аккуратнее, с легким винным полупрозрачным оттенком */
+    border: 1px solid rgba(107, 15, 23, 0.2);
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
-    color: #4A4238;
+    color: #6B0F17; /* Текст, который вводит пользователь — винный */
+    background-color: #FFFDF9; /* Чистый молочный фон поля */
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+    border-color: #6B0F17; /* Рамка становится ярко-винной при фокусе */
 }
 
 .form-input::placeholder {
-    color: #B59B7C;
+    color: #8C6D53; /* Чуть более глубокий оттенок для подсказки */
     opacity: 0.7;
 }
 
@@ -628,34 +651,54 @@ body {
     gap: 10px;
     cursor: pointer;
     font-size: 1rem;
+    color: #4A3B3C;
 }
 
 .radio-input {
     appearance: none;
     width: 20px;
     height: 20px;
-    border: 2px solid #B59B7C;
+    /* 🛠 Меняем рамку неактивной кнопки на мягкий винный/бордовый оттенок */
+    border: 2px solid rgba(107, 15, 23, 0.4); 
     border-radius: 50%;
     outline: none;
     transition: all 0.2s ease;
     position: relative;
+    background-color: #FFFDF9; /* Светлый фон внутри кружочка */
 }
 
 .radio-input:checked {
-    border-color: #7A6248;
-    background-color: #7A6248;
+    /* 🛠 Меняем цвет рамки и фона выбранной кнопки на наш винный */
+    border-color: #6B0F17;
+    background-color: #6B0F17;
 }
 
 .radio-input:checked::after {
     content: '';
     width: 8px;
     height: 8px;
-    background: #FFF;
+    background: #FFFDF9; /* Белая точка внутри */
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.hosts-names {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: #6B0F17;
+    text-align: center;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+#hosts{
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .btn-submit {
@@ -676,17 +719,6 @@ body {
     }
 }
 
-/* Стиль кнопки карты под общий дизайн */
-.btn-map {
-    background-color: #7A6248;
-    color: #FFF;
-    box-shadow: 0 4px 15px rgba(122, 98, 72, 0.25);
-    margin-top: 15px;
-}
-
-.btn-map:hover {
-    background-color: #634E38;
-}
 
 /* Статичный контейнер для 3 картинок */
 .static-carousel-wrapper {
@@ -735,16 +767,6 @@ body {
     transition: opacity 0.4s ease-in-out;
 }
 
-.hosts-names {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 500;
-    letter-spacing: 2.5px;
-    color: #7A6248;
-    text-align: center;
-    margin-top: 15px;
-    text-transform: uppercase;
-}
 
 /* Заголовок Анкета в стиле курсива с засечками */
 .serif-title {
@@ -752,15 +774,52 @@ body {
     font-size: 2.8rem;
     font-style: italic;
     font-weight: 400;
-    color: #7A6248;
+    color: #6B0F17;
     text-align: center;
     margin-bottom: 10px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .rsvp-description {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.3rem;
-    color: #4A4238;
+    color: #5C0E14;
     text-align: center;
     margin-bottom: 25px;
     line-height: 1.4;
@@ -800,63 +859,20 @@ body {
     font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 1.5px;
-    color: #7A6248;
+    color: #4A4238;
     display: block;
     margin-bottom: 15px;
     text-transform: uppercase;
 }
 
-/* Выбор радио-кнопок */
-.radio-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
 
-.radio-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    color: #4A4238;
-    cursor: pointer;
-}
-
-.radio-input {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #B59B7C;
-    border-radius: 50%;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.2s ease;
-}
-
-.radio-input:checked {
-    border-color: #7A6248;
-}
-
-.radio-input:checked::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background-color: #7A6248;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 /* Кнопка отправки */
 .btn-submit {
     width: 100%;
     margin-top: 25px;
     padding: 16px;
-    background-color: #7A6248;
+    background-color: #6B0F17;
     color: #FFF;
     border: none;
     border-radius: 50px;
@@ -878,11 +894,9 @@ body {
     width: 100%;
     padding: 35px 20px 45px;
     text-align: center;
-    border-top: 1px solid rgba(122, 98, 72, 0.15);
-    /* Тонкая нежная линия сверху */
+    border-top: 1px solid rgba(107, 15, 23, 0.15); /* Тонкая нежная винная линия сверху */
     margin-top: 50px;
-    background-color: rgba(122, 98, 72, 0.03);
-    /* Едва заметный подтон для завершенности */
+    background-color: rgba(107, 15, 23, 0.02); /* Едва заметный винный подтон */
 }
 
 .site-footer p {
@@ -893,8 +907,7 @@ body {
 .footer-love {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
-    color: #7A6248;
-    /* Наш основной тёплый шоколадный цвет */
+    color: #6B0F17; /* Наш красивый глубокий винный цвет */
     margin-bottom: 8px;
     letter-spacing: 0.5px;
 }
@@ -903,7 +916,7 @@ body {
     font-family: 'Great Vibes', cursive;
     font-size: 1.6rem;
     font-weight: normal;
-    color: #7A6248;
+    color: #6B0F17; /* Тоже переводим в винный в тон именам на сайте */
     margin: 0 4px;
     vertical-align: middle;
 }
@@ -912,54 +925,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.75rem;
     letter-spacing: 1px;
-    color: #A39382;
-    /* Мягкий второстепенный бежевый цвет */
+    color: #8C7A7B; /* Мягкий приглушенный серо-винный оттенок для копирайта */
     text-transform: uppercase;
 }
 
-.left_flower {
-    position: absolute;
-    /* Жестко привязываем к родительскому блоку */
-    top: -80px;
-    /* Отступ сверху (можешь подстроить под себя) */
-    right: 0;
-    height: auto;
-    /* Сохраняем пропорции картинки, чтобы её не сплющило */
-    z-index: 5;
-    /* Чтобы цветы были поверх фона, но не перекрывали текст кнопок */
-    pointer-events: none;
-    /* Чтобы картинка не мешала нажимать на кнопки или выделять текст */
-}
 
-.mid_offlowers {
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    height: auto;
-    z-index: 5;
-    pointer-events: none;
-    transform: translateX(-50%);
-}
-
-.right_flower {
-    position: absolute;
-    /* Жестко привязываем к родительскому блоку */
-    top: -80px;
-    /* Отступ сверху (можешь подстроить под себя) */
-    left: 0;
-    height: auto;
-    /* Сохраняем пропорции картинки, чтобы её не сплющило */
-    z-index: 5;
-    /* Чтобы цветы были поверх фона, но не перекрывали текст кнопок */
-    pointer-events: none;
-    /* Чтобы картинка не мешала нажимать на кнопки или выделять текст */
-}
-
-.pgwing {
-    position: absolute;
-    top: 320px;
-    right: 0px;
-    height: auto;
-    z-index: 5;
-    pointer-events: none;
-}

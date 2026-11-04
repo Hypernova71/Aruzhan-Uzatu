@@ -20,42 +20,42 @@ musicBtn.addEventListener('click', function () {
     }
 });
 
+// 2. ТАЙМЕР ОБРАТНОГО ОТСЧЕТА ДО 6 ДЕКАБРЯ 2026, 18:00
+const weddingDate = new Date('December 6, 2026 18:00:00').getTime();
 
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-
-
-
-
-
-
-    // 2. ТАЙМЕР ОБРАТНОГО ОТСЧЕТА ДО 6 ДЕКАБРЯ 2026, 18:00
-    const weddingDate = new Date('December 6, 2026 18:00:00').getTime();
-
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
-
-        if (distance < 0) {
-            document.getElementById('days').innerText = '00';
-            document.getElementById('hours').innerText = '00';
-            document.getElementById('minutes').innerText = '00';
-            document.getElementById('seconds').innerText = '00';
-            return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById('days').innerText = days < 10 ? '0' + days : days;
-        document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
-        document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
-        document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+    if (distance < 0) {
+        document.getElementById('days').innerText = '00';
+        document.getElementById('hours').innerText = '00';
+        document.getElementById('minutes').innerText = '00';
+        document.getElementById('seconds').innerText = '00';
+        return;
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+    document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+    document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+    document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+
+
+
+
+
+
 
     // 3. НАДЕЖНОЕ УПРАВЛЕНИЕ КНОПКОЙ ПРИ СКРОЛЛЕ
     function updateMusicButtonPosition() {
@@ -73,7 +73,7 @@ musicBtn.addEventListener('click', function () {
     updateMusicButtonPosition();
 
     // 4. ЛЕГКАЯ И НАДЕЖНАЯ СМЕНА КАРТИНЕК (Rest1 - Rest5)
-    const photoList = ['Rest1.png', 'Rest2.png', 'Rest3.png', 'Rest4.png', 'Rest5.png'];
+    const photoList = ['rest1.jpg', 'rest2.jpg', 'rest3.jpg'];
     let centerIdx = 0;
 
     function rotatePhotos() {
