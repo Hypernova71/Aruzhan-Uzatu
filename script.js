@@ -106,10 +106,6 @@ setInterval(updateCountdown, 1000);
     setInterval(rotatePhotos, 2000);
 
 
-///////////////////////////////
-
-
-
 
  // Твоя актуальная ссылка на веб-приложение Google Apps Script
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx96L0l-oXIrp5ZI8GrZU8-SDRKuNxdaOCjzCSfDHQ2HOZzO7crszrqPD91t_f0YrgL6w/exec";
