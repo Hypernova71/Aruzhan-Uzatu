@@ -428,7 +428,7 @@ body {
 .calendar-container {
     position: relative;
     width: 100%;
-    
+    z-index: 1;
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
     
@@ -930,3 +930,12 @@ body {
 }
 
 
+.before{
+    margin-top: -50px;
+    z-index: 9999;
+    position: relative;
+}
+
+#location{
+    margin-top: 60px;
+}
